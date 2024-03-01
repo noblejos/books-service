@@ -55,8 +55,12 @@ describe('BooksService', () => {
 
   describe('getAll', () => {
     it('should return an array of books', async () => {
-      const data = await service.findAll();
-      expect(data).toEqual(books);
+
+      const repoSpy = jest.spyOn(repo, 'find');
+      const result = await service.findAll();
+
+      expect(repoSpy).toHaveBeenCalled();
+      expect(result).toEqual(books);
     });
   });
 
