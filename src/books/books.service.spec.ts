@@ -55,7 +55,6 @@ describe('BooksService', () => {
 
   describe('getAll', () => {
     it('should return an array of books', async () => {
-
       const repoSpy = jest.spyOn(repo, 'find');
       const result = await service.findAll();
 
